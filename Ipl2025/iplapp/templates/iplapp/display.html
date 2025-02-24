@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <style>
+    body{
+      text-align: center;
+    }
+    h2{
+      color: blueviolet;
+      margin-top: 20px;
+    }
+    
+  </style>
+  <title>Craete Page</title>
+</head>
+<body>
+  <div class="container" style="text-align: center;">
+    <h2>All Playesr Record</h2>
+
+
+ <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Jersy Number</th>
+      <th scope="col">Player Name</th>
+      <th scope="col">Runs</th>
+      <th scope="col">Wickets</th>
+      <th scope="col">Team Name</th>
+      <th scope="col">Action</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for p in db %}
+    <tr>
+      <th scope="row">{{p.jno}}</th>
+      <td>{{p.pname}}</td>
+      <td>{{p.runs}}</td>
+      <td>{{p.wickets}}</td>
+      <td>{{p.tname}}</td>
+      <td><a href="/update/{{p.jno}}/" class="btn btn-warning">UPDATE</a>
+        <a href="/delete/{{p.jno}}/" class="btn btn-danger">DELETE</a>
+        
+        </td>
+
+
+    </tr>
+    {% endfor %}
+   
+    
+  </tbody>
+</table>
+<a href="/create/" class="btn btn-primary">Add player</a>
+  </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
